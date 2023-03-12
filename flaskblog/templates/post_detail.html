@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{article.title}}
+{% endblock %}
+
+{% block content %}
+<div class="p-3 mb-2 bg-light text-dark bg-light">
+    <main class="container">
+        <h1>{{article.title}}</h1>
+
+        <div class="row mb-2">
+            <div class="col-md-12">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <strong class="d-inline-block mb-2 text-primary">IT OVERONE</strong>
+                        <div class="mb-1 text-muted">{{article.date.date()}}</div>
+                        <p class="card-text mb-auto">{{article.text}}</p>
+                    </div>
+                    <div class="col-auto d-none d-lg-block">
+                        <img src="{{ url_for('static', filename='css/img/it-792x528.jpg') }}" width="230" height="210">
+                    </div>
+                </div>
+                <a href="/posts/{{article.id}}/delete" class="btn btn-danger">Удалить</a>
+                <a href="/posts/{{article.id}}/update" class="btn btn-warning">Редактировать</a>
+            </div>
+        </div>
+    </main>
+</div>
+{% endblock %}

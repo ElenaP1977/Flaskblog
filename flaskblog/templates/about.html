@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Обо мне
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <h1>Информация обо мне</h1><br>
+    <div class="p-4 p-md-5 mb-4 text-white rounded bg-secondary">
+        <div class="row mb-2">
+            <div class="col-md-4">
+                <a href="/" class=" container d-flex align-items-center text-dark text-decoration-none">
+                    <img src="{{ url_for('static', filename='css/img/d1.jpg') }}" width="290" height="430">
+                </a>
+            </div>
+            <div class="col-md-8">
+                <i>
+                    Всем привет. Меня зовут Елена.<br>
+                    Я Python-разработчик и сейчас нахожусь в поиске новых
+                    возможностей. В IT сфере я совсем недавно, поэтому хочу поделиться тем, с чем столкнулась, о
+                    подводных камнях,сложностях поиска работы и многое другое.
+                </i>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

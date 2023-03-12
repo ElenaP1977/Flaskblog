@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Статьи
+{% endblock %}
+
+{% block content %}
+<div class="p-3 mb-2 bg-light text-dark bg-light">
+    <main class="container">
+        <h1>Все статьи в блоге</h1>
+
+        {% if articles|length>0%}
+        {% for el in articles %}
+        <div class="row mb-2">
+            <div class="col-md-8">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <strong class="d-inline-block mb-2 text-primary">IT OVERONE</strong>
+                        <h3 class="mb-0">{{el.title}}</h3>
+                        <div class="mb-1 text-muted">{{el.date.date()}}</div>
+                        <p class="card-text mb-auto">{{el.intro}}</p>
+                        <a href="/posts/{{el.id}}" class="stretched-link">Читать далее...</a>
+                    </div>
+                    <div class="col-auto d-none d-lg-block">
+                        <img src="{{ url_for('static', filename='css/img/it-792x528.jpg') }}" width="230" height="210">
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <p>У вас еще нет статей на сайте</p>
+        {% endif %}
+    </main>
+</div>
+{% endblock %}
